@@ -1,77 +1,146 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* Root variables for colors */
+:root {
+  --background-color: #303d3d;
+  --primary-color: #000000;
+  --primary-hover: #8d34d6;
+  --text-color: #fff;
+  --correct-color: #4caf50;
+  --wrong-color: #ff0000;
+  --box-color: #cccccc;
+}
+
 body {
-  background-color: #faebd7;
+  background-color: var(--background-color);
   text-align: center;
   margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
 }
 
+/* Make the color box gray */
 #colorBox {
   height: 200px;
   width: 200px;
   border-radius: 50%;
   margin: 20px auto;
+  background-color: var(--box-color);
+}
+
+/* Rounded buttons */
+.color-shape {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: inline-block;
   border: none;
-  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.color-shape:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
 }
 
 .colorOptions {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-wrap: wrap;
-  gap: 10px;
+  margin-top: 20px;
+  gap: 15px;
 }
 
-.colorOptions button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.colorOptions button:hover {
-  background-color: #d3e0ff;
-  transform: scale(1.1);
-  color: #333;
-}
-
-.colorOptions button.correct {
-  background-color: #4caf50 !important;
-  color: white;
-}
-
-.colorOptions button.wrong {
-  background-color: #ff4d4d !important;
-  color: white;
-}
-
-#gameStatus,
-#score,
-#highScore {
+/* Game Status */
+#gameStatus {
   margin-top: 20px;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* New Game Button */
 #newGameButton {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 1.2rem;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  background-color: #008cba;
+  background-color: var(--primary-color);
   color: white;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 #newGameButton:hover {
-  background-color: #005f7f;
+  background-color: var(--primary-hover);
   transform: scale(1.05);
+}
+
+/* Animations for correct/wrong choices */
+.correct {
+  animation: pulse 0.5s ease-in-out;
+  background-color: var(--correct-color) !important;
+  color: white;
+}
+
+.wrong {
+  animation: shake 0.5s, fadeOut 0.8s;
+  background-color: var(--wrong-color) !important;
+  color: #fff;
+}
+
+/* Pulse effect for correct answer */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Shake effect for wrong answer */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  80% {
+    transform: translateX(-8px);
+  }
+  40%,
+  60% {
+    transform: translateX(8px);
+  }
+}
+
+/* Fade-out effect for wrong choices */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .colorOptions {
+    flex-direction: column;
+  }
+
+  .colorOptions button {
+    width: 80%;
+  }
 }
