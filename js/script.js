@@ -10,7 +10,7 @@ const colors = [
 
 // Get elements from the HTML
 const colorBox = document.getElementById("colorBox");
-const colorOptions = document.getElementById("colorOptions");
+const colorOption = document.getElementById("colorOption");
 const gameStatus = document.getElementById("gameStatus");
 const scoreDisplay = document.getElementById("score");
 const highScoreDisplay = document.getElementById("highScore");
@@ -46,7 +46,7 @@ function startGame(resetScore = false) {
   gameStatus.style.color = "#000000";
 
   // Clear previous buttons
-  colorOptions.innerHTML = "";
+  colorOption.innerHTML = "";
 
   // Create buttons for each color
   colors.forEach(function (color) {
@@ -59,7 +59,7 @@ function startGame(resetScore = false) {
     button.addEventListener("click", function () {
       checkGuess(color, button);
     });
-    colorOptions.appendChild(button);
+    colorOption.appendChild(button);
   });
 }
 
