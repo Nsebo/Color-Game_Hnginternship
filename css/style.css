@@ -49,7 +49,7 @@ body {
   filter: brightness(1.2);
 }
 
-.colorOptions {
+.colorOption {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -136,11 +136,11 @@ body {
 
 /* Responsive Design */
 @media (max-width: 600px) {
-  .colorOptions {
+  .colorOption {
     flex-direction: column;
   }
 
-  .colorOptions button {
+  .colorOption button {
     width: 80%;
   }
 }
