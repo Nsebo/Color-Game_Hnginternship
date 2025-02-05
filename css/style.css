@@ -5,7 +5,7 @@
 :root {
   --background-color: #303d3d;
   --primary-color: #000000;
-  --primary-hover: #8d34d6;
+  --primary-hover: #20635e;
   --text-color: #fff;
   --correct-color: #4caf50;
   --wrong-color: #ff0000;
@@ -67,7 +67,7 @@ body {
 /* New Game Button */
 #newGameButton {
   margin-top: 20px;
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-size: 1.2rem;
   border-radius: 50px;
   cursor: pointer;
